@@ -1,0 +1,126 @@
+basePath: /
+host: localhost:8080
+info:
+  contact: {}
+  description: API server for Song Library Application
+  title: Song Library API
+  version: "1.0"
+paths:
+  /info:
+    get:
+      consumes:
+      - application/json
+      description: get song info
+      parameters:
+      - description: song name
+        in: query
+        name: song
+        required: true
+        type: string
+      - description: group name
+        in: query
+        name: group
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: GetSongInfo
+      tags:
+      - get
+  /song:
+    delete:
+      description: Delete song
+      parameters:
+      - description: song id
+        in: query
+        name: id
+        required: true
+        type: string
+      responses: {}
+      summary: DeleteSong
+      tags:
+      - delete
+    get:
+      description: get song
+      parameters:
+      - description: song id
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: GetSong
+      tags:
+      - get
+    post:
+      consumes:
+      - application/json
+      description: Adding song
+      produces:
+      - application/json
+      responses: {}
+      summary: PostSong
+      tags:
+      - post
+    put:
+      consumes:
+      - application/json
+      description: Song update
+      parameters:
+      - description: song id
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: PutSong
+      tags:
+      - put
+  /songs:
+    get:
+      description: get list song
+      parameters:
+      - description: limit songs in body
+        in: query
+        name: limit
+        type: string
+      - description: Offsetting the song list
+        in: query
+        name: offset
+        type: string
+      - description: song name
+        in: query
+        name: song
+        type: string
+      - description: group name
+        in: query
+        name: group
+        type: string
+      - description: 'song release date '
+        in: query
+        name: release_date
+        type: string
+      - description: song lyrics
+        in: query
+        name: lyric
+        type: string
+      - description: field sorting
+        in: query
+        name: sort
+        type: string
+      - description: sorting type
+        in: query
+        name: type_sort
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: GetListSong
+      tags:
+      - get
+swagger: "2.0"

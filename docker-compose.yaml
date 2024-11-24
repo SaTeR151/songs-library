@@ -1,0 +1,36 @@
+version: "v1.0"
+name: Song-Library
+
+services:
+  server:
+    build: .
+    env_file:
+      - .env
+    ports: 
+      - "8080:8080"
+    command: go run ./cmd/main.go
+    depends_on:
+      - db
+    restart: always
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-db:/postgressql/data
+    env_file:
+      - .env
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4:7
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+volumes:
+  postgres-db:
+  pgadmin-data:
