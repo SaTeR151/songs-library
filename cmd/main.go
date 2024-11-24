@@ -59,7 +59,7 @@ func main() {
 		return
 	}
 	defer db.Close()
-	logger.Info("database if connected")
+	logger.Info("database connected")
 	err = db.SetDatestyle()
 	if err != nil {
 		logger.Error(fmt.Sprintf("Database connect error: %s\n", err.Error()))

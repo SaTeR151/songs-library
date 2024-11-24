@@ -12,6 +12,8 @@ services:
     depends_on:
       - db
     restart: always
+    environment:
+      - DB_HOST=db
   db:
     image: postgres:latest
     ports:

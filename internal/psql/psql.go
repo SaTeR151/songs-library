@@ -44,7 +44,8 @@ func (db *DBStruct) Close() {
 
 func Open(config models.DBConfig) (*DBStruct, error) {
 	var err error
-	connInfo := fmt.Sprintf("host=db user=%s password=%s dbname=%s port=%s sslmode=%s",
+	connInfo := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s",
+		config.Host,
 		config.User,
 		config.Pass,
 		config.Dbname,
